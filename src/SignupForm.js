@@ -5,6 +5,8 @@ export function SignupForm(props){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('');
+    const navigate = useNavigate();
+
     async function submit(e){
         e.preventDefault();
         try{
@@ -16,7 +18,7 @@ export function SignupForm(props){
                     alert("User already exists. Log in now!")
                 }
                 else if(res.data="Not Exists!"){
-                    history("/Portal")
+                    navigate("/Portal")
                 }
             })
             .catch(e=>{
@@ -31,7 +33,7 @@ export function SignupForm(props){
 
     return(
         <div className="auth-form-container">
-        <form className="signup-form" onSubmit={handleSubmit}>
+        <form className="signup-form" onSubmit={submit}>
         <article>
               <h1>WAKEEL</h1>
               <p>Your partner for a successful legal battle</p>

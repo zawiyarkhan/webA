@@ -1,14 +1,16 @@
 const express = require("express")
 const collection = require("./Database")
 const cors = require("cors")
+const connectDB = require('./Database')
+const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
 
-app.get("/Homepage", cors(),(req,res)=>{
+// app.get("/Homepage", cors(),(req,res)=>{
 
-})
+// })
 
 app.post("/Homepage", async(req,res)=>{
     const{email, password} = req.body
@@ -47,6 +49,17 @@ app.post("/SignupForm", async(req,res)=>{
     }
 })
 
-app.listen(3000,()=>{
-    console.log("Port Connected!")
-})
+url = "mongodb+srv://zawiyarkhan:Hello1234@cluster0.ujvzuvt.mongodb.net/Waqeel?retryWrites=true&w=majority";
+
+const start = async() =>{
+    try {
+        await connectDB(url);
+        app.listen(3000, ()=>{
+            console.log("PORT 3000");
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+start()

@@ -82,11 +82,11 @@ export function Homepage(){
               <br></br>
               <br></br>
               </article>
-        <form action = "POST" className="login-form" onSubmit={handleSubmit}>
+        <form action = "POST" className="login-form" onSubmit={submit}>
             <label for="email">Enter a registered email</label>
             <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@xyz.com"/>
             <label for="password">Enter your password</label>
-            <input value={pass} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********"/>
+            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********"/>
             <br></br>
             <br></br>
             <input class="button-33" type = "submit" onClick={submit}>Log In</input> 
